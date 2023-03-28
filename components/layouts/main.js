@@ -1,3 +1,4 @@
+import { MyContacts } from "@/data/contacts";
 import { PersonalInfos } from "@/data/personal";
 import Head from "next/head";
 import Link from "next/link";
@@ -23,45 +24,81 @@ export default function MainLayout({ children, title, selected }) {
 				>
 					<span className="hidden md:block">logo</span>
 					<ul className="flex flex-row w-full md:w-1/2 justify-center md:justify-end">
-						<li className="mr-6 group">
-							<Link className="font-bold" href="/">
+						<li className="mr-6 group flex flex-col justify-center items-center">
+							<Link
+								className={`font-bold ${
+									selected != "" && selected != "home"
+										? "group-hover:text-slate-600 duration-300 transition-all"
+										: ""
+								}`}
+								href="/"
+							>
 								Portfolio
 							</Link>
-							{selected == "" ? (
-								<hr className="border-2 rounded-full border-slate-400" />
-							) : (
-								""
-							)}
+							<hr
+								className={`border-2 rounded-full  ${
+									selected == "" || selected == "home"
+										? "border-slate-400 w-3/4"
+										: "border-slate-300 w-0 group-hover:w-full duration-500 transition-all"
+								}`}
+							/>
 						</li>
-						<li className="mr-6">
-							<Link className="font-bold" href="/resume">
+						<li className="mr-6 group flex flex-col justify-center items-center">
+							<Link
+								className={`font-bold ${
+									selected != "resume"
+										? "group-hover:text-slate-600 duration-300 transition-all"
+										: ""
+								}`}
+								href="/resume"
+							>
 								My Resume
 							</Link>
-							{selected == "resume" ? (
-								<hr className="border-2 rounded-full border-slate-400" />
-							) : (
-								""
-							)}
+							<hr
+								className={`border-2 rounded-full  ${
+									selected == "resume"
+										? "border-slate-400 w-3/4"
+										: "border-slate-300 w-0 group-hover:w-full duration-500 transition-all"
+								}`}
+							/>
 						</li>
-						<li className="mr-6">
-							<Link className="font-bold" href="/about">
+						<li className="mr-6 group flex flex-col justify-center items-center">
+							<Link
+								className={`font-bold ${
+									selected != "about"
+										? "group-hover:text-slate-600 duration-300 transition-all"
+										: ""
+								}`}
+								href="/about"
+							>
 								About Me
 							</Link>
-							{selected == "about" ? (
-								<hr className="border-2 rounded-full border-slate-400" />
-							) : (
-								""
-							)}
+							<hr
+								className={`border-2 rounded-full  ${
+									selected == "about"
+										? "border-slate-400 w-3/4"
+										: "border-slate-300 w-0 group-hover:w-full duration-500 transition-all"
+								}`}
+							/>
 						</li>
-						<li>
-							<Link className="font-bold" href="/contact">
+						<li className="group flex flex-col justify-center items-center">
+							<Link
+								className={`font-bold ${
+									selected != "contact"
+										? "group-hover:text-slate-600 duration-300 transition-all"
+										: ""
+								}`}
+								href="/contact"
+							>
 								Contact Me
 							</Link>
-							{selected == "contact" ? (
-								<hr className="border-2 rounded-full border-slate-400" />
-							) : (
-								""
-							)}
+							<hr
+								className={`border-2 rounded-full  ${
+									selected == "contact"
+										? "border-slate-400 w-3/4"
+										: "border-slate-300 w-0 group-hover:w-full duration-500 transition-all"
+								}`}
+							/>
 						</li>
 					</ul>
 				</header>
@@ -74,35 +111,23 @@ export default function MainLayout({ children, title, selected }) {
 				<footer className="footer bg-black text-white px-5 py-5">
 					<div className="text-center text-lg font-bold">
 						<span>Made with love in Bali by&nbsp;</span>
-						<Link
-							target="_blank"
-							href="https://github.com/salamanderman234"
-						>
+						<Link target="_blank" href={MyContacts.github}>
 							salamanderman234
 						</Link>
 					</div>
 					<ul className="flex justify-center mt-3 text-sm">
 						<li className="mr-5">
-							<Link
-								target="_blank"
-								href="https://github.com/salamanderman234"
-							>
+							<Link target="_blank" href={MyContacts.facebook}>
 								Facebook
 							</Link>
 						</li>
 						<li className="mr-5">
-							<Link
-								target="_blank"
-								href="https://github.com/salamanderman234"
-							>
+							<Link target="_blank" href={MyContacts.twitter}>
 								Twitter
 							</Link>
 						</li>
 						<li>
-							<Link
-								target="_blank"
-								href="https://github.com/salamanderman234"
-							>
+							<Link target="_blank" href={MyContacts.instagram}>
 								Instagram
 							</Link>
 						</li>
